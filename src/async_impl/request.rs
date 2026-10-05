@@ -472,7 +472,7 @@ impl RequestBuilder {
     // is just to nudge people to reduce breakage. It may be removed in a
     // future patch version.
     #[doc(hidden)]
-    #[cfg_attr(target_arch = "wasm32", deprecated)]
+    #[cfg_attr(all(target_arch = "wasm32", not(target_os = "emscripten")), deprecated)]
     pub fn fetch_mode_no_cors(self) -> RequestBuilder {
         self
     }
